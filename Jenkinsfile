@@ -36,7 +36,7 @@ pipeline {
             }
             agent {
                 docker {
-                    image 'cdrx/pyinstaller-linux:python'
+                    image 'cdrx/pyinstaller-linux'
                     args  '-v ${VOLUME}'
                 }
             }
