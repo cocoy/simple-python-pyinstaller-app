@@ -32,10 +32,10 @@ pipeline {
         stage('Deliver') {
             environment { 
                 VOLUME = '$(pwd)/sources:/src'
- 		IMAGE = 'cdrx/pyinstaller-linux:latest'
+ 		IMAGE = 'cdrx/pyinstaller-linux'
             }
             agent {
-                    image 'cdrx/pyinstaller-linux:latest'
+                    image 'cdrx/pyinstaller-linux'
             }
             steps {
                 dir(path: env.BUILD_ID) { 
