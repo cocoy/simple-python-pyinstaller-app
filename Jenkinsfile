@@ -33,7 +33,9 @@ pipeline {
             agent any
             environment { 
                 VOLUME = '$(pwd)/sources:/src'
-                IMAGE = 'cdrx/pyinstaller-linux:python2'
+                IMAGE = 'minidocks/pyinstaller"
+                //IMAGE = 'cdrx/pyinstaller-linux:python2'
+ 		// docker pull minidocks/pyinstaller
             }
             steps {
                 dir(path: env.BUILD_ID) { 
