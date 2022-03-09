@@ -33,10 +33,10 @@ pipeline {
             agent 
                any
             steps {
-
+		sh 'echo hello'
             }
             post {
-
+		sh 'echo hello'
             }
         }
     }
