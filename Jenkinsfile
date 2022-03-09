@@ -30,13 +30,14 @@ pipeline {
             }
         }
         stage('Deliver') {
+            agent 
+               any
+
             environment { 
                 VOLUME = '$(pwd)/sources:/src'
  		IMAGE = 'cdrx/pyinstaller-linux'
             }
-            agent {
-               any 
-            }
+            
             steps {
                 dir(path: env.BUILD_ID) { 
                     unstash(name: 'compiled-results') 
