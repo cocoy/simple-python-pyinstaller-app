@@ -35,7 +35,7 @@ pipeline {
  		IMAGE = 'cdrx/pyinstaller-linux:latest'
             }
             agent {
-                    image '${IMAGE}'
+                    image 'cdrx/pyinstaller-linux:latest'
             }
             steps {
                 dir(path: env.BUILD_ID) { 
