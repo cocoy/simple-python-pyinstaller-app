@@ -32,18 +32,17 @@ pipeline {
         stage('Deliver') {
             environment { 
                 VOLUME = '$(pwd)/sources:/src'
- 		IMAGE = 'docker pull cdrx/pyinstaller-linux'
+ 		IMAGE = 'docker pull cdrx/pyinstaller-linux:latest'
             }
             agent {
                 docker {
-                    image 'cdrx/pyinstaller-linux'
-                    args  '-v ${VOLUME}'
-                }
+                    image 'cdrx/pyinstaller-linux:latest'
             }
             steps {
                 dir(path: env.BUILD_ID) { 
                     //unstash(name: 'compiled-results') 
-	            sh 'pyinstaller -F add2vals.py'
+	            //sh 'pyinstaller -F add2vals.py'
+                    sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller -F add2vals.py'"
                 }
             }
             post {
