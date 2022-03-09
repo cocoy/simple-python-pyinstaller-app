@@ -36,7 +36,7 @@ pipeline {
             }
             agent {
                 docker {
-                    image '${IMAGE}'
+                    image "${IMAGE}"
                 }
             }
             steps {
