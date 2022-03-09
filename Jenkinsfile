@@ -37,6 +37,7 @@ pipeline {
             agent {
                 docker {
                     image 'cdrx/pyinstaller-linux:latest'
+ 		}
             }
             steps {
                 dir(path: env.BUILD_ID) { 
