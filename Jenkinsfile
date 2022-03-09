@@ -33,14 +33,13 @@ pipeline {
             agent any
             environment { 
                 VOLUME = '$(pwd)/sources:/src'
-                IMAGE = 'minidocks/pyinstaller"
-                //IMAGE = 'cdrx/pyinstaller-linux:python2'
- 		// docker pull minidocks/pyinstaller
+                IMAGE = 'cdrx/pyinstaller-linux:python'
             }
             steps {
                 dir(path: env.BUILD_ID) { 
-                    unstash(name: 'compiled-results') 
-                    sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller -F add2vals.py'" 
+                    //unstash(name: 'compiled-results') 
+                    //sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller -F add2vals.py'" 
+	            sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller -F add2vals.py'"
                 }
             }
             post {
